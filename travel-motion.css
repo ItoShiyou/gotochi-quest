@@ -1,0 +1,158 @@
+.travel-scene { position: relative; overflow: hidden; }
+.travel-water { position: absolute; inset: 66% 0 0; pointer-events: none; }
+/* Different lengths and phases keep reflections from moving in unison. */
+.travel-water i {
+  position: absolute;
+  width: 11%;
+  height: clamp(1px, .28vw, 3px);
+  background: linear-gradient(90deg, transparent, #fff0ba 26% 74%, transparent);
+  opacity: .32;
+  animation: travel-glint var(--wave-period, 6s) ease-in-out infinite;
+}
+.travel-water i:nth-child(1) { left: 59%; top: 11%; animation-delay: -1.7s; }
+.travel-water i:nth-child(2) { left: 25%; top: 39%; width: 9%; --wave-period: 7.3s; animation-delay: -2.1s; }
+.travel-water i:nth-child(3) { left: 76%; top: 52%; width: 6%; --wave-period: 5.4s; animation-delay: -3.4s; }
+.travel-water i:nth-child(4) { left: 46%; top: 81%; width: 15%; --wave-period: 8s; animation-delay: -1s; }
+.travel-water i:nth-child(5) { left: 6%; top: 62%; width: 9%; --wave-period: 6.6s; animation-delay: -4.2s; }
+
+.travel-party {
+  --stroll: 16s;
+  position: absolute;
+  left: 15%;
+  bottom: 6%;
+  width: 19%;
+  height: 21%;
+  pointer-events: none;
+  animation: travel-walk var(--stroll) ease-in-out infinite;
+}
+.travel-party img { display: block; width: 100%; image-rendering: pixelated; }
+.travel-player, .travel-companion { position: absolute; bottom: 0; }
+.travel-player { right: 0; width: 60%; }
+.travel-companion {
+  left: 0;
+  width: 46%;
+  animation: travel-follow var(--stroll) ease-in-out infinite;
+}
+.travel-player .travel-step {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: travel-step .64s step-end infinite, travel-gait var(--stroll) step-end infinite;
+}
+.travel-party .travel-mochi { animation: travel-breathe 2.8s ease-in-out infinite; }
+
+@keyframes travel-glint {
+  0%, 100% { opacity: .12; transform: translateX(-15%) scaleX(.66); }
+  48% { opacity: .58; transform: translateX(44%) scaleX(1.12); }
+  77% { opacity: .28; transform: translateX(65%) scaleX(.86); }
+}
+@keyframes travel-walk {
+  0%, 10%, 94%, 100% { transform: translateX(-20%); }
+  42%, 62% { transform: translateX(140%); }
+}
+@keyframes travel-follow {
+  0%, 13%, 46%, 65%, 97%, 100% { transform: translateX(0); }
+  22%, 36% { transform: translateX(-16%); }
+  74%, 88% { transform: translateX(16%); }
+}
+@keyframes travel-gait {
+  0%, 42%, 94% { visibility: hidden; }
+  10%, 62% { visibility: visible; }
+}
+@keyframes travel-step { 50% { opacity: 1; } }
+@keyframes travel-breathe { 50% { transform: translateY(-6%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .travel-water i, .travel-party, .travel-companion,
+  .travel-player .travel-step, .travel-party .travel-mochi { animation: none; }
+}
+
+.travel-page .hero-scene figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  min-height: 48px;
+}
+.motion-toggle {
+  min-height: 36px;
+  padding: 5px 9px;
+  color: #e5ddcf;
+  background: #15222d;
+  border: 1px solid #68767a;
+  border-radius: 4px;
+  font: inherit;
+  font-size: .75rem;
+  cursor: pointer;
+}
+.travel-motion-paused .travel-scene * { animation-play-state: paused; }
+.travel-page :is(a, button):focus-visible { outline: 2px solid #ffd58d; outline-offset: 3px; }
+
+@media (max-width: 750px) {
+  .travel-page .hero { padding: 17px 0 28px; gap: 17px; }
+  .travel-page .hero-scene { box-shadow: 4px 4px 0 #09131c; }
+  .travel-page .hero-copy .eyebrow { margin-bottom: 4px; }
+  .travel-page .hero-copy h1 { font-size: clamp(2rem, 8.8vw, 3.5rem); }
+  .travel-page .hero-copy .intro { margin: 9px 0 14px; font-size: .88rem; }
+  .travel-page .entry-actions { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-toggle { display: none; }
+}
+
+
+.travel-start-note { margin: 0; color: var(--soft); font-size: .8rem; }
+.travel-page .entry-actions .action { min-height: 52px; }
+.travel-page .entry-actions .secondary { min-height: 44px; }
+
+.travel-party { width: max(100px, 19%); }
+.travel-party button {
+  display: block;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #fff0ba;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+.travel-party button:not(:disabled) { cursor: pointer; }
+.travel-player { width: 52%; }
+.travel-companion { left: -4%; width: 44%; }
+.travel-party:has(button:focus-visible),
+.travel-party:has(button:focus-visible) * { animation-play-state: paused; }
+.travel-party button.is-reacting::after {
+  content: "!";
+  position: absolute;
+  left: 50%;
+  top: -5px;
+  translate: -50% -100%;
+  padding: 0 7px;
+  border: 1px solid #ffdc9f;
+  border-radius: 4px;
+  background: #332337;
+  font: bold 1rem/1.35 system-ui, sans-serif;
+  pointer-events: none;
+}
+.travel-party .travel-companion.is-reacting::after { content: "♥"; }
+.travel-party button.is-reacting::after { animation: travel-pop .62s ease-out both; }
+
+@keyframes travel-pop {
+  from { transform: translateY(4px) scale(.82); }
+  35% { transform: translateY(-4px) scale(1.12); }
+  to { transform: translateY(-8px); }
+}
+.travel-reaction {
+  flex-basis: 100%;
+  margin: 0;
+  min-height: 2.9em;
+  color: #e8d3b7;
+  font-size: .78rem;
+  line-height: 1.45;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .travel-party button.is-reacting::after { animation: none; }
+}

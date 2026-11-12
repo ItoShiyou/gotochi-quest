@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101b25">
+  <meta name="description" content="ご当地クエストの舞台、宮崎・青島へ。鬼の洗濯板、青島神社、周辺の散策コースを紹介。">
+  <title>青島の旅ガイド｜ご当地クエスト</title>
+  <link rel="icon" href="assets/items/torii_4x.png">
+  <link rel="stylesheet" href="portal.css?v=2">
+  <link rel="stylesheet" href="travel-motion.css?v=5">
+  <link rel="stylesheet" href="travel-quiz.css?v=1">
+  <script type="module" src="travel-motion.js?v=3"></script>
+  <script type="module" src="travel-quiz.js?v=1"></script>
+  <script type="module" src="travel.js"></script>
+</head>
+<body class="portal travel-page">
+  <header class="portal-header shell">
+    <a class="brand" href="./"><img src="assets/items/torii_4x.png" width="26" height="26" alt="">ご当地クエスト</a>
+    <a class="header-link" href="./">ゲーム案内へ</a>
+  </header>
+  <main class="shell">
+    <section class="hero" aria-labelledby="travel-title">
+      <div class="hero-copy">
+        <p class="eyebrow">宮崎県・青島</p>
+        <h1 id="travel-title">青島の旅ガイド</h1>
+        <p class="intro">ゲームの舞台、宮崎・青島へ。鬼の洗濯板や青島神社を、ゲームと現地の両方で巡ってみよう。</p>
+        <div class="entry-actions">
+          <p class="travel-start-note">友だち追加したら、LINEで冒険へ。</p>
+          <a class="action line" href="https://lin.ee/PGyfhtB">公式LINEを友だち追加</a>
+          <a class="secondary" href="https://miniapp.line.me/2012538864-9rwwrCTx">LINEで無料で遊ぶ</a>
+        </div>
+      </div>
+      <figure class="hero-scene">
+        <div class="travel-scene">
+          <img class="vista" src="assets/vistas/vista_aoshima.png" width="480" height="270" alt="青島の海岸と鳥居を描いたゲーム内のドット絵">
+          <div class="travel-water" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="travel-party">
+            <button class="travel-player" type="button" aria-label="主人公に話しかける" disabled>
+              <img src="assets/characters/player_f1_4x.png" alt="">
+              <img class="travel-step" src="assets/characters/player_f2_4x.png" alt="">
+            </button>
+            <button class="travel-companion" type="button" aria-label="ひなたもちに話しかける" disabled>
+              <img class="travel-mochi" src="assets/characters/ally_mochi_4x.png" alt="">
+            </button>
+          </div>
+        </div>
+        <figcaption>
+          <b>青島 鬼の洗濯板</b>
+          <button class="motion-toggle" type="button" hidden>動きを止める</button>
+          <p class="travel-reaction" role="status">キャラクターをタップ。青島の豆知識を教えてくれるよ。</p>
+          <a class="quiz-jump" href="#aoshima-quiz" hidden>青島ミニクイズに挑戦する ↓</a>
+        </figcaption>
+      </figure>
+    </section>
+    <section id="aoshima-quiz" class="aoshima-quiz" aria-labelledby="quiz-title" hidden>
+      <div class="quiz-head">
+        <div>
+          <p class="eyebrow">ひなたもちと遊ぼう</p>
+          <h2 id="quiz-title">青島ミニクイズ</h2>
+          <p class="quiz-intro">キャラクターに聞いた豆知識で、3問にチャレンジ！</p>
+        </div>
+        <div class="quiz-mochi" data-quiz="mochi" aria-hidden="true">
+          <img src="assets/characters/ally_mochi_4x.png" alt="" width="64" height="64">
+          <span>✦</span>
+        </div>
+      </div>
+      <p class="quiz-progress" data-quiz="progress"></p>
+      <h3 class="quiz-prompt" id="quiz-question" data-quiz="prompt" tabindex="-1"></h3>
+      <div class="quiz-options" role="group" aria-labelledby="quiz-question" data-quiz="options"></div>
+      <p class="quiz-feedback" role="status" data-quiz="feedback"></p>
+      <button class="action quiz-next" type="button" data-quiz="next" hidden>次の問題へ</button>
+      <div class="quiz-result" data-quiz="result" hidden>
+        <h3 data-quiz="result-title" tabindex="-1">3問クリア！</h3>
+        <p>ひなたもち「もちっ！ 次はLINEで一緒に青島を冒険しよう！」</p>
+        <div class="quiz-actions">
+          <a class="action line" href="https://miniapp.line.me/2012538864-9rwwrCTx">LINEで本編を遊ぶ</a>
+          <button class="secondary" type="button" data-quiz="restart">もう一度遊ぶ</button>
+        </div>
+      </div>
+    </section>
+    <section class="how" aria-labelledby="places-title">
+      <h2 id="places-title">青島で立ち寄りたい場所</h2>
+      <ul class="steps travel-places">
+        <li><div><h3>鬼の洗濯板</h3><p>島の周りに並ぶ波状の岩。潮の満ち引きで景色が変わります。</p><a href="https://www.kanko-miyazaki.jp/spot/1242">宮崎県の観光案内</a></div></li>
+        <li><div><h3>青島神社</h3><p>橋を渡って青島へ。島の中央に鎮座する神社です。</p><a href="https://aoshima-jinja.jp/">青島神社の公式サイト</a></div></li>
+        <li><div><h3>青島の散策コース</h3><p>海辺とカフェを歩いて巡る、日帰りのモデルコースです。</p><a href="https://www.miyazaki-city.tourism.or.jp/course/photoAOSHIMA">宮崎市のモデルコース</a></div></li>
+      </ul>
+    </section>
+    <section id="travel-sponsor" class="how" aria-labelledby="sponsor-title" hidden>
+      <p class="eyebrow">広告</p>
+      <h2 id="sponsor-title"></h2>
+      <p class="intro" id="sponsor-description"></p>
+      <a class="secondary" id="sponsor-link" rel="sponsored noreferrer" target="_blank">スポンサーのサイトへ</a>
+    </section>
+    <section class="how" aria-labelledby="partnership-title">
+      <h2 id="partnership-title">旅行・観光事業者の方へ</h2>
+      <p class="intro">宿泊施設、観光体験、交通サービスなど、青島の旅に関連した広告掲載のご相談を受け付けています。</p>
+      <a class="secondary" id="partnership-contact" href="privacy.html#operator-info">広告掲載について問い合わせる</a>
+    </section>
+  </main>
+  <footer class="portal-footer shell"><a href="./">ご当地クエスト</a><a href="privacy.html">プライバシー</a></footer>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5930e170fb219ed',t:'MTc5NDQ2MDQ4Ng=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5930e170fb219ed',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

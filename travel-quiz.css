@@ -1,0 +1,43 @@
+.portal .quiz-jump { display: inline-flex; align-items: center; min-height: 44px; color: var(--amber); font-weight: 750; }
+.travel-page .hero-scene figcaption .quiz-jump { flex-basis: 100%; }
+.aoshima-quiz {
+  margin: 0 0 32px;
+  padding: clamp(16px, 4vw, 30px);
+  border: 1px solid #b99565;
+  border-radius: 6px;
+  background: radial-gradient(ellipse at 85% 0, #244749, #172633 75%);
+  scroll-margin-top: 12px;
+}
+.quiz-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.quiz-head h2 { margin: 0; font-size: clamp(1.4rem, 5.5vw, 2rem); line-height: 1.25; }
+.quiz-head .eyebrow { margin-bottom: 4px; }
+.quiz-intro { margin: 6px 0 0; color: var(--soft); font-size: .88rem; }
+.quiz-mochi { position: relative; flex: 0 0 64px; display: grid; place-items: center; aspect-ratio: 1; }
+.quiz-mochi img { display: block; width: 100%; }
+.quiz-mochi span { position: absolute; top: -6px; right: -2px; opacity: 0; color: var(--amber); line-height: 1; font-size: 1.2rem; }
+.quiz-mochi.is-happy img { animation: quiz-hop .6s ease-out; }
+.quiz-mochi.is-happy span { opacity: 1; animation: quiz-spark .6s ease-out; }
+@keyframes quiz-hop { 40% { transform: translateY(-11px) rotate(-8deg) scale(1.1); } 70% { transform: translateY(1px) scale(1.12,.9); } }
+@keyframes quiz-spark { from { opacity: 0; transform: translateY(6px) scale(.6); } }
+.quiz-progress { color: var(--amber); font-size: .8rem; font-weight: 750; margin: 17px 0 4px; }
+.quiz-prompt, .quiz-result h3 { margin: 0 0 12px; font-size: 1.15rem; }
+.quiz-prompt:empty, .quiz-feedback:empty { margin: 0; }
+.quiz-options { display: grid; gap: 8px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.aoshima-quiz button { color: inherit; touch-action: manipulation; }
+.aoshima-quiz .quiz-option { min-height: 48px; text-align: left; justify-content: flex-start; }
+.quiz-option[aria-disabled="true"] { cursor: default; }
+.quiz-option[aria-disabled="true"]:hover { filter: none; }
+.aoshima-quiz .quiz-option[data-state="retry"] { color: #ffd3a9; border-color: #d99875; }
+.aoshima-quiz .quiz-option[data-state="correct"] { color: #a6f7c9; border-color: #74db9d; background: #17372e; }
+.quiz-feedback { margin: 10px 0; font-size: .91rem; }
+.quiz-feedback[data-state="correct"] { color: #a6f7c9; }
+.quiz-feedback[data-state="retry"] { color: #ffd3a9; }
+.quiz-result p { margin: 0 0 12px; color: var(--soft); }
+.quiz-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 600px) {
+  .quiz-options, .quiz-actions { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .quiz-next { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .quiz-mochi.is-happy img, .quiz-mochi.is-happy span { animation: none; }
+}
