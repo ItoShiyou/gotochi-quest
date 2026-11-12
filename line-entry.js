@@ -76,7 +76,7 @@ function showGate(message, actionLabel, action, offerFriend = false) {
 async function launchGame() {
   showGate("ゲームを読み込んでいます…");
   try {
-    await import("./game-core.js?v=8");
+    await import("./game-core.js?v=9");
     get("line-gate").hidden = true;
     document.body.classList.remove("gate-pending");
     document.querySelector("#btn-resume:not([hidden]), #btn-start").focus({ preventScroll: true });
